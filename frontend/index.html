@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Outbound Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">◆</span>
+    <span class="brand-name">Outbound&nbsp;Strategist</span>
+    <span class="brand-sub">evidence-grounded GTM agent</span>
+  </div>
+  <div class="status" id="status-pill">checking…</div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="sender">
+    <span class="tab-num">01</span> Sender → ICP &amp; value prop
+  </button>
+  <button class="tab" data-tab="target">
+    <span class="tab-num">02</span> Target → fit &amp; outbound
+  </button>
+</nav>
+
+<main>
+  <!-- ================= MODE 1 ================= -->
+  <section class="panel active" id="panel-sender">
+    <div class="col-input">
+      <h2 class="eyebrow">Mode 01</h2>
+      <h1 class="display">Infer the<br/>ideal customer.</h1>
+      <p class="lede">Point the agent at a sender's website. It reads the
+        public pages, retrieves only the relevant passages, and infers a
+        value proposition and a structured ICP — every conclusion traceable
+        to a source.</p>
+
+      <label class="field">
+        <span>Sender website</span>
+        <input id="sender-url" type="text" value="artisan.co"
+               placeholder="example.com" />
+      </label>
+      <label class="field">
+        <span>Max pages to read</span>
+        <input id="sender-pages" type="number" value="6" min="2" max="10" />
+      </label>
+      <button class="run" id="run-sender">Run agent →</button>
+
+      <div class="timeline" id="sender-timeline"></div>
+    </div>
+
+    <div class="col-output" id="sender-output">
+      <div class="empty">The inferred profile will appear here.</div>
+    </div>
+  </section>
+
+  <!-- ================= MODE 2 ================= -->
+  <section class="panel" id="panel-target">
+    <div class="col-input">
+      <h2 class="eyebrow">Mode 02</h2>
+      <h1 class="display">Evaluate &amp;<br/>reach out.</h1>
+      <p class="lede">Give the agent a target company and a recipient persona.
+        It researches the account, scores fit against the ICP, and drafts two
+        angle-different emails — with a claim map citing every fact.</p>
+
+      <div class="icp-status" id="icp-status">
+        <span class="dot"></span>
+        <span id="icp-status-text">No sender ICP loaded — run Mode 01 first.</span>
+      </div>
+
+      <label class="field">
+        <span>Target website</span>
+        <input id="target-url" type="text" placeholder="targetcompany.com" />
+      </label>
+      <div class="field-row">
+        <label class="field">
+          <span>Persona role</span>
+          <input id="persona-role" type="text" value="VP of Sales" />
+        </label>
+        <label class="field">
+          <span>Seniority</span>
+          <input id="persona-seniority" type="text" value="VP" />
+        </label>
+      </div>
+      <button class="run" id="run-target" disabled>Run agent →</button>
+
+      <div class="timeline" id="target-timeline"></div>
+    </div>
+
+    <div class="col-output" id="target-output">
+      <div class="empty">Fit, signals, emails, and the claim map will appear here.</div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-left">
+    <span id="usage-badge"></span>
+    <span id="usage-detail"></span>
+  </div>
+  <span class="footer-note">Retrieval: BM25 over chunked pages · grounding enforced at generation</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

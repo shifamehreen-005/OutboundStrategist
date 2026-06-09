@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from backend.config import config; print\\('MOCK_MODE:', config.MOCK_MODE\\); print\\('has key:', bool\\(config.ANTHROPIC_API_KEY\\)\\); print\\('MODEL:', config.MODEL\\); print\\('MODEL_LIGHT:', config.MODEL_LIGHT\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python -m pytest tests/ -x -q)",
+      "Bash(python -c \"import backend.llm, backend.search, backend.prompts, backend.agent, backend.config; print\\('imports OK'\\)\")",
+      "Bash(grep -rn \"dotenv\\\\|load_dotenv\\\\|\\\\.env\" backend/*.py)",
+      "Bash(python -c \"import os; print\\('TAVILY in env:', bool\\(os.getenv\\('TAVILY_API_KEY'\\)\\)\\)\")",
+      "Bash(python -c \"import os; print\\('ANTHROPIC:', bool\\(os.getenv\\('ANTHROPIC_API_KEY'\\)\\), '| TAVILY:', bool\\(os.getenv\\('TAVILY_API_KEY'\\)\\)\\)\")",
+      "Bash(python -c \"import dotenv; print\\('dotenv available'\\)\")",
+      "Bash(python -X utf8 -c ' *)"
+    ]
+  }
+}
