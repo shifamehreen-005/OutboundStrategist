@@ -49,21 +49,7 @@ Required for JS-heavy sites that return near-empty static HTML. Degrades gracefu
 
 ### 4 — Start the server
 
-**No API key — mock mode** (deterministic responses, no credits used):
-
 ```bash
-uvicorn backend.app:app --port 8000
-```
-
-**With API key — live mode** (real Claude calls, real web fetch, real web search):
-
-```bash
-# macOS / Linux
-export ANTHROPIC_API_KEY=sk-ant-...
-
-# Windows PowerShell
-$env:ANTHROPIC_API_KEY="sk-ant-..."
-
 uvicorn backend.app:app --port 8000
 ```
 
@@ -77,8 +63,8 @@ Confirm it is running:
 
 ```bash
 curl http://localhost:8000/api/health
-# {"ok": true, "mock_mode": true,  "model": "claude-sonnet-4-5"}   ← mock
-# {"ok": true, "mock_mode": false, "model": "claude-sonnet-4-5"}   ← live
+# {"ok": true, "mock_mode": true,  "model": "claude-sonnet-4-5"}   ← mock mode - No API Key
+# {"ok": true, "mock_mode": false, "model": "claude-sonnet-4-5"}   ← live mode - API Key
 ```
 
 Open <http://localhost:8000>.
