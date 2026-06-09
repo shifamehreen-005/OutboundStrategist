@@ -355,6 +355,9 @@ outbound-strategist/
 │   └── test_scoring.py     Pure unit tests for scoring.py — no LLM, no network.
 │                           Proves score is deterministic and company-name-blind.
 │
+├── eval/
+│   └── EVAL.md         Eval plan, gold set format, and blank results tables.
+│
 ├── DECISIONS.md        Architecture and design decisions with rationale.
 ├── requirements.txt
 └── README.md           This file.
