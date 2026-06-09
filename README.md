@@ -47,10 +47,12 @@ playwright install chromium
 
 Required for JS-heavy sites that return near-empty static HTML. Degrades gracefully if absent.
 
+### Make sure to create a .env file - with your API keys in it. 1. Claude 2. Tavily.
+
 ### 4 — Start the server
 
 ```bash
-uvicorn backend.app:app --port 8000
+uvicorn backend.app:app --port 8000 
 ```
 
 > **Tip for development:** add `--reload` so Python file changes take effect without restarting:
